@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+html {
+  font-family: "Oswald";
+  font-size: 40px;
+  font-weight: 400;
+}
+body {
+  background-color: lightgray;
+}
+.header {
+  background-color: honeydew;
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  max-width: 1280px;
+  min-height: calc(100vh - 100px);
+  margin: 0 auto;
+}
+.carousel {
+  position: relative;
+  height: 100px;
+  max-width: 100%;
+  background-color: white;
+  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.4);
+  display: flex;
+  overflow: hidden;
+}
+.carousel::before,
+.carousel::after {
+  content: "";
+  width: 200px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background: linear-gradient(to right, white 0%, transparent 100%);
+}
+.carousel::before {
+  left: 0;
+}
+.carousel::after {
+  right: 0;
+  background: linear-gradient(to left, white 0%, transparent 100%);
+}
+.carousel-anim {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  animation: slideshow 25s linear infinite;
+}
+@keyframes slideshow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.carousel-anim__item {
+  height: calc(100% - 40px);
+  margin: 0 40px;
+  width: auto;
+}
